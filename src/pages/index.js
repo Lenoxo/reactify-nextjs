@@ -34,7 +34,7 @@ export default function Home() {
       <h1 className="font-extralight text-xl">Time to get you something great!</h1>
       <input id="search-bar" type="text" className="p-3 my-6 border border-slate-950 dark:bg-zinc-800 dark:border-white rounded-lg focus:outline-none" placeholder="Search a product" onChange={(event) => context.setProductSearchValue(event.target.value)}/>
       {/* Esta es la sección de los productos*/}
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full max-w-screen-lg place-items-center">
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full max-w-screen-lg place-items-center h-full">
         {renderCards()}
       </section>
       <ProductDetail />
