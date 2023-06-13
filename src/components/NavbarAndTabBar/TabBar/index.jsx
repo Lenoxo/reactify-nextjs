@@ -12,7 +12,7 @@ function TabBar() {
     const handleLogout = () => {
     // Maneja el cierre de sesión
     context.setLogged(false)
-    localStorage.setItem('logged', 'false')
+    // localStorage.setItem('logged', 'false')
     }
     return (
         <ul className="flex flex-row w-full h-[68px] fixed justify-around items-center bottom-0 left-0 bg-white dark:text-white dark:bg-zinc-900 z-10 lg:hidden border-t-2">

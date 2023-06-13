@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { Link } from 'next/link'
+import Link from "next/link"
 import { Layout } from "@components/Layout"
 import { ShoppingCartContext } from "../Context"
 
@@ -9,41 +9,41 @@ function Login() {
   // Estado que cambia si el login es false.
   const [loginFailed, setLoginFailed] = useState(false)
   // Guardo los datos del usuario en localStorage, dentro de userSavedData.
-  const userSavedData = JSON.parse(localStorage.getItem("user-data"))
-  const navigate = useNavigate()
+  // const userSavedData = JSON.parse(localStorage.getItem("user-data"))
+  // const navigate = useNavigate()
 
   const handleLogin = (event) => {
     event.preventDefault()
-    // Se guarda la información puesta por el usuario en el form dentro de loginData.
-    const loginData = {
-      email: event.target[0].value,
-      password: event.target[1].value,
-    }
+    // // Se guarda la información puesta por el usuario en el form dentro de loginData.
+    // const loginData = {
+    //   email: event.target[0].value,
+    //   password: event.target[1].value,
+    // }
 
-    // Devuelve true/false dependiendo de si los datos de loginData coinciden con los de userSavedData.
-    const isLoggedIn =
-      userSavedData &&
-      userSavedData.email === loginData.email &&
-      userSavedData.password === loginData.password
+    // // Devuelve true/false dependiendo de si los datos de loginData coinciden con los de userSavedData.
+    // const isLoggedIn =
+    //   userSavedData &&
+    //   userSavedData.email === loginData.email &&
+    //   userSavedData.password === loginData.password
 
-    context.setLogged(isLoggedIn)
+    context.setLogged(true)
     
-    if (isLoggedIn) { // Solo cuando isLoggedIn sea true, se ejecuta este bloque de codigo.
-      localStorage.setItem("logged", JSON.stringify(isLoggedIn))
-      navigate("/") // Redirige a la página principal.
-    }
+    // if (isLoggedIn) { // Solo cuando isLoggedIn sea true, se ejecuta este bloque de codigo.
+    //   localStorage.setItem("logged", JSON.stringify(isLoggedIn))
+    //   navigate("/") // Redirige a la página principal.
+    // }
     // Se cambia el estado de loginFailed.
-    setLoginFailed(!isLoggedIn)
+    // setLoginFailed(!true)
   }
   return (
     <Layout>
       <h1 className="font-medium text-xl">Welcome Back</h1>
       {/* renderiza un mensaje para el usuario si el login falla. */}
-      {loginFailed && (
+      {/* {loginFailed && (
         <p className="font-light bg-red-200 text-md rounded-lg my-4 p-2 dark:bg-red-900">
           Email or Password doesn't match, check them and try again
         </p>
-      )}
+      )} */}
       <form
         onSubmit={handleLogin}
         className="flex flex-col text-sm items-start border rounded-lg mt-4 border-inherit space-y-4 p-4 dark:bg-zinc-800 dark:text-white dark:border-inherit"
@@ -64,13 +64,13 @@ function Login() {
           className="p-4 font-semibold bg-black text-white w-full rounded-lg"
           type="submit"
         >
-          Login
           <Link href='/'>
+            Login
           </Link>
         </button>
         <label className="font-light">Not having an account?</label>
         <Link
-          to="/sign-up"
+          href="/sign-up"
           className="p-4 font-semibold bg-inherit text-inherit w-full rounded-lg border border-black dark:border-inherit disabled:text-zinc-300 disabled:border-zinc-300 text-center"
         >
           Sign Up
