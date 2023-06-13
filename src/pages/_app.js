@@ -11,16 +11,16 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>Reactify</title>
-        {/* Global site tag (gtag.js) - Google Analytics */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-Q209P0ECCH" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'G-Q209P0ECCH');`}
-        </Script>
       </Head>
+      {/* Global site tag (gtag.js) - Google Analytics */}
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-Q209P0ECCH" strategy="afterInteractive" />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-Q209P0ECCH');`}
+      </Script>
       <ShoppingCartProvider>
         <Navbar />
         <TabBar />
