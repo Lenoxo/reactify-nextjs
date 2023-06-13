@@ -6,7 +6,7 @@ function OrderCard(props) {
         <div className="flex justify-between items-center mx-3 mb-3 dark:text-white">
             <div className="flex justify-between items-center gap-2">
                 <figure className="w-20 h-20">
-                    <Image src={image} alt="" className="w-full h-full object-cover rounded-lg"/>
+                    <Image width={224} height={218} style={{objectFit: "cover"}} src={image} alt="" className="w-full h-full object-cover rounded-lg"/>
                 </figure>
                 <p className="text-sm font-light">{title}</p>
             </div>

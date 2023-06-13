@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { ShoppingCartContext } from "../../pages/Context"
+import { ShoppingCartContext } from "../../Context"
 import Image from "next/image"
 
 function ProductDetail() {
@@ -27,7 +27,7 @@ function ProductDetail() {
       </div>
       <figure className="px-6 relative">
         {/* Imagen del producto */}
-        <Image src={image} alt={title} className="w-full h-full rounded-lg" />
+        <Image width={1920} height={1080} style={{objectFit: "cover"}} src={image} alt={title} className="w-full h-full rounded-lg" />
         {/* Etiqueta de categoría */}
         <span className="absolute bottom-0 left-0 bg-zinc-300 rounded-lg text-black text-xs ml-9 mb-3 px-3 py-0.5">
           {category}
