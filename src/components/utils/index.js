@@ -1,9 +1,9 @@
 export const totalPrice = (arrayWithProducts) => {
   const finalPrice = arrayWithProducts.reduce((prices, product) => {
-    return prices + product.price
-  }, 0)
-  return finalPrice
-}
+    return prices + product.price;
+  }, 0);
+  return finalPrice;
+};
 
 // Esta es otra forma de hacer lo mismo usando map.
 // export const totalPrice = (arrayWithProducts) => {

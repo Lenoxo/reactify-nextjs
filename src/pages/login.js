@@ -1,20 +1,20 @@
-import { useContext, useState } from "react"
-import Link from "next/link"
-import Head from "next/head"
-import { Layout } from "@components/Layout"
-import { ShoppingCartContext } from "../Context"
+import { useContext, useState } from 'react';
+import Link from 'next/link';
+import Head from 'next/head';
+import { Layout } from '@components/Layout';
+import { ShoppingCartContext } from '../Context';
 
 // Página que permite iniciar sesión, o permite el acceso a crear una nueva cuenta.
 function Login() {
-  const context = useContext(ShoppingCartContext)
+  const context = useContext(ShoppingCartContext);
   // Estado que cambia si el login es false.
-  const [loginFailed, setLoginFailed] = useState(false)
+  const [loginFailed, setLoginFailed] = useState(false);
   // Guardo los datos del usuario en localStorage, dentro de userSavedData.
   // const userSavedData = JSON.parse(localStorage.getItem("user-data"))
   // const navigate = useNavigate()
 
   const handleLogin = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     // // Se guarda la información puesta por el usuario en el form dentro de loginData.
     // const loginData = {
     //   email: event.target[0].value,
@@ -27,15 +27,15 @@ function Login() {
     //   userSavedData.email === loginData.email &&
     //   userSavedData.password === loginData.password
 
-    context.setLogged(true)
-    
+    context.setLogged(true);
+
     // if (isLoggedIn) { // Solo cuando isLoggedIn sea true, se ejecuta este bloque de codigo.
     //   localStorage.setItem("logged", JSON.stringify(isLoggedIn))
     //   navigate("/") // Redirige a la página principal.
     // }
     // Se cambia el estado de loginFailed.
     // setLoginFailed(!true)
-  }
+  };
   return (
     <>
       <Head>
@@ -49,29 +49,13 @@ function Login() {
             Email or Password doesn't match, check them and try again
           </p>
         )} */}
-        <form
-          onSubmit={handleLogin}
-          className="flex flex-col text-sm items-start border rounded-lg mt-4 border-inherit space-y-4 p-4 dark:bg-zinc-800 dark:text-white dark:border-inherit"
-        >
+        <form onSubmit={handleLogin} className="flex flex-col text-sm items-start border rounded-lg mt-4 border-inherit space-y-4 p-4 dark:bg-zinc-800 dark:text-white dark:border-inherit">
           <label className="font-medium">Your Email</label>
-          <input
-            className="text-start bg-zinc-300 dark:bg-zinc-900 border border-inherit dark:border-zinc-800 rounded-lg p-2"
-            type="text"
-            placeholder="example@gmail.com"
-          />
+          <input className="text-start bg-zinc-300 dark:bg-zinc-900 border border-inherit dark:border-zinc-800 rounded-lg p-2" type="text" placeholder="example@gmail.com" />
           <label className="font-medium">Your Password</label>
-          <input
-            className="text-start bg-zinc-300 dark:bg-zinc-900 border border-inherit dark:border-zinc-800 rounded-lg p-2"
-            type="password"
-            placeholder="Buy Something"
-          />
-          <button
-            className="p-4 font-semibold bg-black text-white w-full rounded-lg"
-            type="submit"
-          >
-            <Link href='/'>
-              Login
-            </Link>
+          <input className="text-start bg-zinc-300 dark:bg-zinc-900 border border-inherit dark:border-zinc-800 rounded-lg p-2" type="password" placeholder="Buy Something" />
+          <button className="p-4 font-semibold bg-black text-white w-full rounded-lg" type="submit">
+            <Link href="/">Login</Link>
           </button>
           <label className="font-light">Not having an account?</label>
           <Link
@@ -83,7 +67,7 @@ function Login() {
         </form>
       </Layout>
     </>
-  )
+  );
 }
 
-export default Login
+export default Login;
