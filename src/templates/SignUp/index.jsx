@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { Layout } from "../../Components/Layout"
-import { ShoppingCartContext } from "../Context"
+import { ShoppingCartContext } from "../../Context"
 import { useNavigate } from "react-router-dom" // Importo el hook useNavigate para la navegación.
 
 // Página para crear un usuario y guardar sus datos en localStorage.

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import { Link, useNavigate } from "react-router-dom" // Importo Link y useNavigate para la navegación.
 import { Layout } from "../../Components/Layout"
-import { ShoppingCartContext } from "../Context"
+import { ShoppingCartContext } from "../../Context"
 
 // Página que permite iniciar sesión, o permite el acceso a crear una nueva cuenta.
 function Login() {

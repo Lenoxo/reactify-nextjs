@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { ShoppingCartContext } from "../../pages/Context"
+import Image from "next/image"
 
 function ProductDetail() {
   // Obtenemos el contexto del carrito de compras
@@ -26,7 +27,7 @@ function ProductDetail() {
       </div>
       <figure className="px-6 relative">
         {/* Imagen del producto */}
-        <img src={image} alt={title} className="w-full h-full rounded-lg" />
+        <Image src={image} alt={title} className="w-full h-full rounded-lg" />
         {/* Etiqueta de categoría */}
         <span className="absolute bottom-0 left-0 bg-zinc-300 rounded-lg text-black text-xs ml-9 mb-3 px-3 py-0.5">
           {category}

@@ -1,12 +1,12 @@
 import { useContext } from "react"
-import { NavLink } from "react-router-dom"
-import { ShoppingCartContext } from "../../../pages/Context"
+import { ShoppingCartContext } from "../../../Context"
 import { NavbarItem } from "../NavbarItem"
 import { ToggleDarkModeButton } from "../ToggleDarkModeButton"
+import Link from "next/link"
 
 function Navbar() {
   const context = useContext(ShoppingCartContext)
-  let activeStyle = "underline underline-offset-4"
+  let activeStyle = "underline underline-offset-4" // Mäs adelante pasalo de forma dinámica dependiendo del estado active del <a>
   let email = ''
 
   const handleLogout = () => {
@@ -56,13 +56,10 @@ function Navbar() {
         {!context.logged && (
           <li>
             {/* Enlace para iniciar sesión */}
-            <NavLink
-              to='/login'
-              className={({ isActive }) =>
-                isActive ? activeStyle : undefined
-              }>
+            <Link
+              href='/login'>
               Sign In
-            </NavLink>
+            </Link>
           </li>
         )}
       </ul>

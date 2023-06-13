@@ -1,6 +1,6 @@
 import { Layout } from '../../Components/Layout'
 import { NavLink } from 'react-router-dom'
-import { ShoppingCartContext } from '../Context'
+import { ShoppingCartContext } from '../../Context'
 import { useContext } from 'react'
 
 function MyAccount() {

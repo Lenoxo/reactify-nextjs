@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from "react"
 import { ShoppingCartContext } from "../../pages/Context"
+import Image from "next/image"
 
 function Card({ category, title, image, price, description, id }) {
   const productData = { category, title, image, price, description, id }
@@ -66,7 +67,7 @@ function Card({ category, title, image, price, description, id }) {
           {category}
         </span>
         {/* Imagen del producto */}
-        <img className="w-full h-full object-cover rounded-lg" src={image} alt={title} />
+        <Image className="w-full h-full object-cover rounded-lg" src={image} alt={title} />
         {/* Renderiza el ícono de carrito o la marca de verificación */}
         {renderIcon(productData.id)}
       </figure>
