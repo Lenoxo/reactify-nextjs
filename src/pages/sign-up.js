@@ -1,12 +1,10 @@
 import { useContext } from "react"
-import { Layout } from "../../Components/Layout"
 import { ShoppingCartContext } from "../Context"
-import { useNavigate } from "react-router-dom" // Importo el hook useNavigate para la navegación.
+import { Layout } from "@components/Layout"
 
 // Página para crear un usuario y guardar sus datos en localStorage.
 function SignUp() {
   const context = useContext(ShoppingCartContext)
-  const navigate = useNavigate()
   const handleSignUp = (event) => {
     event.preventDefault()
     // Toma del evento de Submit los valores de cada input, y los guarda en userData.
@@ -16,12 +14,12 @@ function SignUp() {
     const userData = { name, email, password }
 
     // Se guarda en localStorage userData.
-    localStorage.setItem("user-data", JSON.stringify(userData))
+    // localStorage.setItem("user-data", JSON.stringify(userData))
 
-    // Se actualiza en Context el estado logged y se guarda en localStorage.
-    context.setLogged(true)
-    localStorage.setItem("logged", "true")
-    navigate("/") // Redirige a la página principal.
+    // // Se actualiza en Context el estado logged y se guarda en localStorage.
+    // context.setLogged(true)
+    // localStorage.setItem("logged", "true")
+    // navigate("/") // Redirige a la página principal.
   }
 
   return (
@@ -63,4 +61,4 @@ function SignUp() {
   )
 }
 
-export { SignUp }
+export default SignUp

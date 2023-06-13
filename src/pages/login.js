@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
-import { Link, useNavigate } from "react-router-dom" // Importo Link y useNavigate para la navegación.
-import { Layout } from "../../Components/Layout"
+import { Link } from 'next/link'
+import { Layout } from "@components/Layout"
 import { ShoppingCartContext } from "../Context"
 
 // Página que permite iniciar sesión, o permite el acceso a crear una nueva cuenta.
@@ -65,6 +65,8 @@ function Login() {
           type="submit"
         >
           Login
+          <Link href='/'>
+          </Link>
         </button>
         <label className="font-light">Not having an account?</label>
         <Link
@@ -78,4 +80,4 @@ function Login() {
   )
 }
 
-export { Login }
+export default Login

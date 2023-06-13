@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react"
 import { ShoppingCartContext } from "../Context"
-import { Layout } from "../../Components/Layout"
-import { OrderCard } from "../../Components/OrderCard"
-import { Link } from "react-router-dom"
+import { Layout } from "@components/Layout"
+import { OrderCard } from "@components/OrderCard"
+import { Link } from "next/link"
 
 function MyOrder() {
   const context = useContext(ShoppingCartContext)
@@ -22,7 +22,7 @@ function MyOrder() {
     <Layout>
       <div className="flex justify-center items-center relative w-80 mb-4">
         {/* Link de volver a My Orders */}
-        <Link to='/my-orders' className="absolute left-0">
+        <Link href='/my-orders' className="absolute left-0">
           {/* Icono de volver */}
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
@@ -47,4 +47,4 @@ function MyOrder() {
   )
 }
 
-export { MyOrder }
+export default MyOrder

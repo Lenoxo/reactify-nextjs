@@ -1,8 +1,8 @@
 import { ShoppingCartContext } from "../Context"
 import { useContext } from "react"
-import { Layout } from "../../Components/Layout"
-import { OrdersCard } from "../../Components/OrdersCard"
-import { Link } from "react-router-dom"
+import { Layout } from "@components/Layout"
+import { OrdersCard } from "../components/OrdersCard"
+import { Link } from 'next/link'
 
 function MyOrders() {
   const context = useContext(ShoppingCartContext)
@@ -11,7 +11,7 @@ function MyOrders() {
       My Orders
       {context.order.map((order, index) => {
         return (
-          <Link key={index} to={`/my-orders/${index}`}>
+          <Link key={index} href={`/my-orders/${index}`}>
             <OrdersCard
               totalProducts={order.totalProducts}
               totalPrice={order.totalPrice}
@@ -24,4 +24,4 @@ function MyOrders() {
   )
 }
 
-export { MyOrders }
+export default MyOrders
