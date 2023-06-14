@@ -6,18 +6,17 @@ import Link from 'next/link';
 
 function Navbar() {
   const context = useContext(ShoppingCartContext);
-  let activeStyle = 'underline underline-offset-4'; // Mäs adelante pasalo de forma dinámica dependiendo del estado active del <a>
   let email = '';
 
   const handleLogout = () => {
     // Maneja el cierre de sesión
     context.setLogged(false);
-    // localStorage.setItem('logged', 'false')
+    localStorage.setItem('logged', 'false')
   };
 
   if (context.logged) {
     // Si el usuario ha iniciado sesión, toma del localStorage su dirección de correo electrónico.
-    // email = JSON.parse(localStorage.getItem('user-data')).email
+    email = JSON.parse(localStorage.getItem('user-data')).email
   }
   return (
     <nav className="hidden lg:flex lg:flex-row lg:justify-between lg:items-center fixed z-10 lg:w-screen py-4 px-8 text-sm font-light rounded-lg top-0 border-b-2 bg-white dark:text-white dark:bg-zinc-900">
@@ -25,22 +24,22 @@ function Navbar() {
       <h2 className="font-bold text-md cursor-default">Reactify</h2>
       <ul className={`lg:flex lg:items-center lg:flex-row gap-3 `}>
         {/* En el resto de items, mando por props to y activeStyle */}
-        <NavbarItem to="/" activeStyle={activeStyle} category={null}>
+        <NavbarItem to="/" category={null}>
           All
         </NavbarItem>
-        <NavbarItem to="/clothes" activeStyle={activeStyle} category={'Clothes'}>
+        <NavbarItem to="/" category={'Clothes'}>
           Clothes
         </NavbarItem>
-        <NavbarItem to="/electronics" activeStyle={activeStyle} category={'Electronics'}>
+        <NavbarItem to="/" category={'Electronics'}>
           Electronics
         </NavbarItem>
-        <NavbarItem to="/furnitures" activeStyle={activeStyle} category={'Furnitures'}>
+        <NavbarItem to="/" category={'Furnitures'}>
           Furnitures
         </NavbarItem>
-        <NavbarItem to="/toys" activeStyle={activeStyle} category={'Toys'}>
+        <NavbarItem to="/" category={'Toys'}>
           Toys
         </NavbarItem>
-        <NavbarItem to="/others" activeStyle={activeStyle} category={'Others'}>
+        <NavbarItem to="/" category={'Others'}>
           Others
         </NavbarItem>
       </ul>
@@ -49,13 +48,13 @@ function Navbar() {
         {context.logged && (
           <>
             <li className="text-black/60 dark:text-white/60">{email}</li>
-            <NavbarItem to="/my-orders" activeStyle={activeStyle} category={null}>
-              <a>My Orders</a>
+            <NavbarItem to="/my-orders" category={null}>
+              My Orders
             </NavbarItem>
-            <NavbarItem to="/my-account" activeStyle={activeStyle} category={null}>
+            <NavbarItem to="/my-account" category={null}>
               My Account
             </NavbarItem>
-            <NavbarItem to="/login" activeStyle={activeStyle} category={null} handleLogout={handleLogout}>
+            <NavbarItem to="/login" category={null} handleLogout={handleLogout}>
               Sign Out
             </NavbarItem>
             <li className="flex items-center">

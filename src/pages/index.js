@@ -1,12 +1,19 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { ShoppingCartContext } from 'Context';
 import { Layout } from '@components/Layout';
 import { LoadingCard } from '@components/LoadingCard';
 import { Card } from '@components/Card';
 import { ProductDetail } from '@components/ProductDetail';
+import { useRouter } from 'next/router';
 
 export default function Home() {
   const context = useContext(ShoppingCartContext);
+  const router = useRouter();
+  useEffect(() => {
+    if (!context.logged) {
+      router.push('/login');
+    }
+  }, []);
   function renderCards() {
     if (context.isLoading) {
       return (

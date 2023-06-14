@@ -1,45 +1,50 @@
 import { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { Layout } from '@components/Layout';
 import { ShoppingCartContext } from '../Context';
 
 // Página que permite iniciar sesión, o permite el acceso a crear una nueva cuenta.
 function Login() {
   const context = useContext(ShoppingCartContext);
+  // Importo useRouter y lo guardo dentro de router, para una redirección dentro de useEffect.
+  const router = useRouter();
+
   // Estado que cambia si el login es false.
   const [loginFailed, setLoginFailed] = useState(false);
+
   const [loginData, setLoginData] = useState(false);
-  let userSavedData;
+  // Este useEffect almacena toda la lógica relacionada al uso de localStorage y validación de Login.
   useEffect(() => {
     // Guardo los datos del usuario en localStorage, dentro de userSavedData.
-    userSavedData = JSON.parse(localStorage.getItem('user-data'));
-    console.log('userSavedData' + userSavedData);
+    const userSavedData = JSON.parse(localStorage.getItem('user-data'));
+
     if (loginData) {
       // Se guarda la información puesta por el usuario en el form dentro de userData.
       const userData = {
-        email: loginData.target[0].value,
-        password: loginData.target[1].value,
+        email: loginData.target.elements.email.value,
+        password: loginData.target.elements.password.value,
       };
-      console.log('userData' + userData);
 
-      // Devuelve true/false dependiendo de si los datos de userData coinciden con los de userSavedData.
+      // // Devuelve true/false dependiendo de si los datos de userData coinciden con los de userSavedData.
       const isLoggedIn = userSavedData && userSavedData.email === userData.email && userSavedData.password === userData.password;
-
-      context.setLogged(true);
+      context.setLogged(isLoggedIn);
 
       if (isLoggedIn) {
         // Solo cuando isLoggedIn sea true, se ejecuta este bloque de codigo.
         localStorage.setItem('logged', JSON.stringify(isLoggedIn));
+        // Se cambia el estado de loginFailed.
         // Redirige a la página principal.
+        router.push('/');
       }
-      // Se cambia el estado de loginFailed.
-      setLoginFailed(!true);
+      setLoginFailed(!isLoggedIn);
     }
   }, [loginData]);
+
   const handleLogin = (event) => {
     event.preventDefault();
-    setLoginData(event)
+    setLoginData(event);
   };
 
   return (
@@ -50,25 +55,22 @@ function Login() {
       <Layout>
         <h1 className="font-medium text-xl">Welcome Back</h1>
         {/* renderiza un mensaje para el usuario si el login falla. */}
-        {loginFailed && <p className="font-light bg-red-200 text-md rounded-lg my-4 p-2 dark:bg-red-900">Email or Password doesn't match, check them and try again</p>}
-        <form
-          onSubmit={handleLogin}
-          className="flex flex-col text-sm items-start border rounded-lg mt-4 border-inherit space-y-4 p-4 dark:bg-zinc-800 dark:text-white dark:border-inherit"
-        >
-          <label className="font-medium">Your Email</label>
-          <input className="text-start bg-zinc-300 dark:bg-zinc-900 border border-inherit dark:border-zinc-800 rounded-lg p-2" type="text" placeholder="example@gmail.com" />
-          <label className="font-medium">Your Password</label>
-          <input className="text-start bg-zinc-300 dark:bg-zinc-900 border border-inherit dark:border-zinc-800 rounded-lg p-2" type="password" placeholder="Buy Something" />
+        {loginFailed && <p className="font-light bg-red-200 text-md rounded-lg my-4 p-2 dark:bg-red-900">Email or Password doesn&apos;t match, check them and try again</p>}
+        <form onSubmit={handleLogin} className="flex flex-col text-sm items-start border rounded-lg mt-4 border-inherit space-y-4 p-4 dark:bg-zinc-800 dark:text-white dark:border-inherit">
+          <label className="font-medium" htmlFor='email'>Your Email</label>
+          <input className="text-start bg-zinc-300 dark:bg-zinc-900 border border-inherit dark:border-zinc-800 rounded-lg p-2" type="text" placeholder="example@gmail.com" id='email'/>
+          <label className="font-medium" htmlFor='password'>Your Password</label>
+          <input className="text-start bg-zinc-300 dark:bg-zinc-900 border border-inherit dark:border-zinc-800 rounded-lg p-2" type="password" placeholder="Buy Something" id='password'/>
           <button className="p-4 font-semibold bg-black text-white w-full rounded-lg" type="submit">
             Login
           </button>
-          <label className="font-light">Not having an account?</label>
-          {/* <Link
+          <p className="font-light">Not having an account?</p>
+          <Link
             href="/sign-up"
             className="p-4 font-semibold bg-inherit text-inherit w-full rounded-lg border border-black dark:border-inherit disabled:text-zinc-300 disabled:border-zinc-300 text-center"
           >
             Sign Up
-          </Link> */}
+          </Link>
         </form>
       </Layout>
     </>

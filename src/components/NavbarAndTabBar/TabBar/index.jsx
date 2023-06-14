@@ -7,7 +7,6 @@ import Link from 'next/link';
 function TabBar() {
   const context = useContext(ShoppingCartContext);
   const [hideList, setHideList] = useState(true);
-  let activeStyle = 'underline underline-offset-4';
 
   const handleLogout = () => {
     // Maneja el cierre de sesión
@@ -17,31 +16,31 @@ function TabBar() {
   return (
     <ul className="flex flex-row w-full h-[68px] fixed justify-around items-center bottom-0 left-0 bg-white dark:text-white dark:bg-zinc-900 z-10 lg:hidden border-t-2">
       {/* Icono de Search */}
-      <a href="#search-bar">
+      <Link href="#search-bar">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-auto">
           <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
         </svg>
-      </a>
+      </Link>
       {/* Icono de Categorias */}
       <li onClick={() => setHideList(!hideList)}>
         <ul className={`${hideList && 'hidden'} flex items-center flex-col gap-3 absolute bottom-[68px] left-1/9 bg-white dark:text-white dark:bg-zinc-900 rounded-t-lg p-2 border`}>
           {/* En electronics resto de items, mando por props to y activeStyle */}
-          <NavbarItem to="/" activeStyle={activeStyle} category={null}>
+          <NavbarItem to="/" category={null}>
             All
           </NavbarItem>
-          <NavbarItem to="/clothes" activeStyle={activeStyle} category={'Clothes'}>
+          <NavbarItem to="/" category={'Clothes'}>
             Clothes
           </NavbarItem>
-          <NavbarItem to="/electronics" activeStyle={activeStyle} category={'Electronics'}>
+          <NavbarItem to="/" category={'Electronics'}>
             Electronics
           </NavbarItem>
-          <NavbarItem to="/furnitures" activeStyle={activeStyle} category={'Furnitures'}>
+          <NavbarItem to="/" category={'Furnitures'}>
             Furnitures
           </NavbarItem>
-          <NavbarItem to="/toys" activeStyle={activeStyle} category={'Toys'}>
+          <NavbarItem to="/" category={'Toys'}>
             Toys
           </NavbarItem>
-          <NavbarItem to="/others" activeStyle={activeStyle} category={'Others'}>
+          <NavbarItem to="/" category={'Others'}>
             Others
           </NavbarItem>
         </ul>

@@ -56,7 +56,7 @@ function CheckoutSideMenu() {
           <span className="font-light text-lg">Total:</span>
           <span className="font-medium text-xl">${totalPrice(context.cartProducts)}</span>
         </p>
-        <Link href="/my-orders/last">
+        <Link href="/my-orders">
           <button className="bg-black rounded-lg text-white w-full h-9 font-bold" onClick={() => handleCheckout()}>
             Checkout
           </button>

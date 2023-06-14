@@ -2,18 +2,19 @@ import { ShoppingCartContext } from '../Context';
 import { useContext } from 'react';
 import { Layout } from '@components/Layout';
 import { OrdersCard } from '../components/OrdersCard';
-import { Link } from 'next/link';
 
 function MyOrders() {
   const context = useContext(ShoppingCartContext);
+  console.log(context.order);
   return (
     <Layout>
       My Orders
       {context.order.map((order, index) => {
         return (
-          <Link key={index} href={`/my-orders/${index}`}>
+          // Por ahora, esta última parte de my-orders, con el render dinámico, no está funcionando.
+          <a key={index} href={`/my-orders/`}> 
             <OrdersCard totalProducts={order.totalProducts} totalPrice={order.totalPrice} date={order.date} />
-          </Link>
+          </a>
         );
       })}
     </Layout>
