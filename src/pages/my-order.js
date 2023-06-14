@@ -17,7 +17,7 @@ function MyOrder() {
   // Establecer ProductSearchValue como null al cargar el componente
   useEffect(() => {
     context.setProductSearchValue(null);
-  }, []);
+  }, [context]);
   return (
     <Layout>
       <div className="flex justify-center items-center relative w-80 mb-4">

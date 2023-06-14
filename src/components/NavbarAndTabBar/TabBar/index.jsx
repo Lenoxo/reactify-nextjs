@@ -11,7 +11,7 @@ function TabBar() {
   const handleLogout = () => {
     // Maneja el cierre de sesión
     context.setLogged(false);
-    // localStorage.setItem('logged', 'false')
+    localStorage.setItem('logged', 'false');
   };
   return (
     <ul className="flex flex-row w-full h-[68px] fixed justify-around items-center bottom-0 left-0 bg-white dark:text-white dark:bg-zinc-900 z-10 lg:hidden border-t-2">
@@ -22,7 +22,12 @@ function TabBar() {
         </svg>
       </Link>
       {/* Icono de Categorias */}
-      <li onClick={() => setHideList(!hideList)}>
+      <button onClick={() => setHideList(!hideList)} onKeyDown={() => setHideList(!hideList)} className='active:bg-zinc-300 px-2 rounded-lg'>
+        {/* svg del icono de Categorías */}
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-auto">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" />
+        </svg>
+        {/* Lista de categorías */}
         <ul className={`${hideList && 'hidden'} flex items-center flex-col gap-3 absolute bottom-[68px] left-1/9 bg-white dark:text-white dark:bg-zinc-900 rounded-t-lg p-2 border`}>
           {/* En electronics resto de items, mando por props to y activeStyle */}
           <NavbarItem to="/" category={null}>
@@ -44,10 +49,7 @@ function TabBar() {
             Others
           </NavbarItem>
         </ul>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-auto">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" />
-        </svg>
-      </li>
+      </button>
       {context.logged && (
         <>
           {/* icono del perfil */}

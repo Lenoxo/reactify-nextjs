@@ -40,7 +40,7 @@ function Login() {
       }
       setLoginFailed(!isLoggedIn);
     }
-  }, [loginData]);
+  }, [loginData, context, router]);
 
   const handleLogin = (event) => {
     event.preventDefault();

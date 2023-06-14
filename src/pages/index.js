@@ -13,7 +13,7 @@ export default function Home() {
     if (!context.logged) {
       router.push('/login');
     }
-  }, []);
+  }, [context.logged, router]);
   function renderCards() {
     if (context.isLoading) {
       return (

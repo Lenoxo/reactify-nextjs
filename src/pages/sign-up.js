@@ -19,7 +19,7 @@ function SignUp() {
       localStorage.setItem('logged', 'true');
       // navigate("/") // Redirige a la página principal.
     }
-  }, [signUpData]);
+  }, [signUpData, context]);
   const handleSignUp = (event) => {
     event.preventDefault();
     // Toma del evento de Submit los valores de cada input, y los guarda en userData.

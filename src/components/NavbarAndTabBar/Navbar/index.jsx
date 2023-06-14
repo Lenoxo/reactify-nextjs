@@ -11,12 +11,12 @@ function Navbar() {
   const handleLogout = () => {
     // Maneja el cierre de sesión
     context.setLogged(false);
-    localStorage.setItem('logged', 'false')
+    localStorage.setItem('logged', 'false');
   };
 
   if (context.logged) {
     // Si el usuario ha iniciado sesión, toma del localStorage su dirección de correo electrónico.
-    email = JSON.parse(localStorage.getItem('user-data')).email
+    email = JSON.parse(localStorage.getItem('user-data')).email;
   }
   return (
     <nav className="hidden lg:flex lg:flex-row lg:justify-between lg:items-center fixed z-10 lg:w-screen py-4 px-8 text-sm font-light rounded-lg top-0 border-b-2 bg-white dark:text-white dark:bg-zinc-900">

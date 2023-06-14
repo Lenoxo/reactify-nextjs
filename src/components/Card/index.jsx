@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { ShoppingCartContext } from '../../Context';
 import Image from 'next/image';
 
@@ -43,7 +43,7 @@ function Card({ category, title, image, price, description, id }) {
     }
   }
   return (
-    <div className="bg-inherit cursor-pointer w-56 h-68 rounded-lg mb-6" onClick={() => showProduct(productData)}>
+    <div role="button" tabIndex={0} className="bg-inherit cursor-pointer w-56 h-68 rounded-lg mb-6" onClick={() => showProduct(productData)} onKeyDown={() => showProduct(productData)}>
       <figure className="relative mb-2 w-full h-4/5 rounded-lg">
         {/* Etiqueta que muestra la categoría del producto */}
         <span className="absolute bottom-0 left-0 bg-zinc-300 rounded-lg text-black text-xs m-2 px-3 py-0.5">{category}</span>
