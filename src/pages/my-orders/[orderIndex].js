@@ -1,19 +1,14 @@
 import { useContext, useEffect } from 'react';
-import { ShoppingCartContext } from '../Context';
+import { ShoppingCartContext } from '../../Context';
 import { Layout } from '@components/Layout';
 import { OrderCard } from '@components/OrderCard';
-import { Link } from 'next/link';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 function MyOrder() {
   const context = useContext(ShoppingCartContext);
-  // Guardo en currentPath la URL actual.
-  const currentPath = window.location.pathname;
-  // Guardo solo la parte después del ultimo / de la URL en orderIndex.
-  let orderIndex = currentPath.substring(currentPath.lastIndexOf('/') + 1);
-  // Si está en la última orden, se establece el valor de orderIndex como el ultimo indice del estado global Order.
-  if (orderIndex === 'last') {
-    orderIndex = context.order?.length - 1;
-  }
+  const router = useRouter();
+  const { orderIndex } = router.query;
   // Establecer ProductSearchValue como null al cargar el componente
   useEffect(() => {
     context.setProductSearchValue(null);
@@ -32,7 +27,7 @@ function MyOrder() {
       </div>
       <div className="w-80">
         {
-          // Aquí renderizo los productos dentro del estado global order usando el componente OrderCard.
+          // Aquí renderizo los productos dentro del estado global order usando el componente OrderCard. Por el momento, hasta actualizar las rutas usando next, está desactivado.
           context.order[orderIndex]?.products.map((product) => {
             return <OrderCard key={product.id} productInfo={product} />;
           })

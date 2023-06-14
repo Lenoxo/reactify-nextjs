@@ -28,11 +28,14 @@ export default function Home() {
           <LoadingCard />
         </>
       );
-    } else
+    } else if (context.filteredProducts?.length < 1) {
+      return <p className="col-span-4">We don&apos;t have any products here 😞</p>;
+    } else {
       return context.filteredProducts?.map((product) => {
         // Envio por props los datos necesarios para renderizar las Cards.
         return <Card key={product.id} id={product.id} category={product.category.name} image={product.category.image} title={product.title} price={product.price} description={product.description} />;
       });
+    }
   }
   return (
     <Layout>
