@@ -3,8 +3,10 @@ import { ShoppingCartContext } from '../../../Context';
 import { NavbarItem } from '../NavbarItem';
 import { ToggleDarkModeButton } from '../ToggleDarkModeButton';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 function Navbar() {
+  const router = useRouter();
   const context = useContext(ShoppingCartContext);
   let email = '';
 
@@ -12,6 +14,7 @@ function Navbar() {
     // Maneja el cierre de sesión
     context.setLogged(false);
     localStorage.setItem('logged', 'false');
+    router.push('/login');
   };
 
   if (context.logged) {
