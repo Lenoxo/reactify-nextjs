@@ -11,6 +11,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>Reactify</title>
+        <link rel='manifest' href='/manifest.json' />
       </Head>
       {/* Global site tag (gtag.js) - Google Analytics */}
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-Q209P0ECCH" strategy="afterInteractive" />
