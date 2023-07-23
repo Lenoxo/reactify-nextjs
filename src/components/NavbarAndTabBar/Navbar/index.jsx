@@ -37,10 +37,10 @@ function Navbar() {
           Jewelery
         </NavbarItem>
         <NavbarItem to="/" category={`Men's Clothing`}>
-          Men's Clothing
+          Men&apos;s Clothing
         </NavbarItem>
         <NavbarItem to="/" category={`women's clothing`}>
-          Women's Clothing
+          Women&apos;s Clothing
         </NavbarItem>
       </ul>
       <ul className={`lg:flex lg:items-center lg:flex-row gap-3 `}>
