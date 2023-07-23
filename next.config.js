@@ -9,7 +9,15 @@ const withPWA = require('next-pwa')({
 const nextConfig = withPWA({
   reactStrictMode: true,
   images: {
-    domains: ['picsum.photos', 'img.com'],
+    remotePatterns: [
+      // Por ahora, dejo el hostname como cualquiera con '**' como dice en los Docs de Next.js
+      {
+        protocol: 'https',
+        hostname: '**',
+        port: '',
+        pathname: '/**',
+      }
+    ],
   },
 });
 
