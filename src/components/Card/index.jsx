@@ -43,20 +43,20 @@ function Card({ category, title, image, price, description, id }) {
     }
   }
   return (
-    <div role="button" tabIndex={0} className="bg-inherit cursor-pointer w-56 h-68 rounded-lg mb-6" onClick={() => showProduct(productData)} onKeyDown={() => showProduct(productData)}>
+    <div role="button" tabIndex={0} className="bg-inherit cursor-pointer w-56 h-64 rounded-lg mb-6" onClick={() => showProduct(productData)} onKeyDown={() => showProduct(productData)}>
       <figure className="relative mb-2 w-full h-4/5 rounded-lg">
+        {/* Imagen del producto */}
+        <Image className="object-contain rounded-lg bg-white" src={image} alt={title} fill={true} />
         {/* Etiqueta que muestra la categoría del producto */}
         <span className="absolute bottom-0 left-0 bg-zinc-300 rounded-lg text-black text-xs m-2 px-3 py-0.5">{category}</span>
-        {/* Imagen del producto */}
-        <Image className="w-full h-auto object-cover rounded-lg" src={image} alt={title} width={224} height={218} style={{ objectFit: 'cover' }} />
         {/* Renderiza el ícono de carrito o la marca de verificación */}
         {renderIcon(productData.id)}
       </figure>
-      <p className="flex justify-between">
+      <p className="flex justify-between gap-2 w-full h-1/5">
         {/* Título del producto */}
-        <span className="text-sm font-light">{title}</span>
+        <p className="text-md font-light overflow-ellipsis whitespace-nowrap overflow-hidden">{title}</p>
         {/* Precio del producto */}
-        <span className="text-lm font-bold">${price}</span>
+        <span className="text-md font-bold">${price}</span>
       </p>
     </div>
   );

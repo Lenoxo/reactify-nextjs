@@ -32,7 +32,7 @@ function CheckoutSideMenu() {
     <aside // Dependiendo del valor de isCheckoutSideMenuOpen, se muestra/oculta CheckoutSideMenu.
       className={`${
         context.isCheckoutSideMenuOpen ? 'flex' : 'hidden'
-      } flex flex-col fixed z-20 right-0 top-0 w-screen h-full overflow-y-auto md:top-[60px] md:w-[360px] bg-white dark:bg-zinc-800 dark:text-white border border-inherit rounded-lg md:h-[calc(100vh-60px)]`}
+      } flex flex-col fixed z-20 right-0 top-0 w-screen h-full overflow-y-auto lg:top-[60px] lg:w-[360px] bg-white dark:bg-zinc-800 dark:text-white border border-inherit rounded-lg lg:h-[calc(100vh-60px)]`}
     >
       <div className="flex justify-between items-center p-6">
         <h2 className="font-medium text-xl">My Order</h2>

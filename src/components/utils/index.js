@@ -27,7 +27,7 @@ function filteredProductsByTitle(arrayWithProducts, searchValue) {
 }
 function filteredProductsByCategory(arrayWithProducts, categoryValue) {
   // Aquí uso toLowerCase para que no importe si el titulo del producto, o lo que los usuarios escriben esté en mayúsculas o minúsculas.
-  return arrayWithProducts?.filter((product) => product.category.name.toLowerCase().includes(categoryValue.toLowerCase()));
+  return arrayWithProducts?.filter((product) => product.category.toLowerCase().startsWith(categoryValue.toLowerCase()));
 }
 
 export { totalPrice, filterBy };

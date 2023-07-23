@@ -33,7 +33,7 @@ export default function Home() {
     } else {
       return context.filteredProducts?.map((product) => {
         // Envio por props los datos necesarios para renderizar las Cards.
-        return <Card key={product.id} id={product.id} category={product.category.name} image={product.category.image} title={product.title} price={product.price} description={product.description} />;
+        return <Card key={product.id} id={product.id} category={product.category} image={product.image} title={product.title} price={product.price} description={product.description} />;
       });
     }
   }
