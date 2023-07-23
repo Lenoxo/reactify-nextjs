@@ -30,20 +30,17 @@ function Navbar() {
         <NavbarItem to="/" category={null}>
           All
         </NavbarItem>
-        <NavbarItem to="/" category={'Clothes'}>
-          Clothes
-        </NavbarItem>
         <NavbarItem to="/" category={'Electronics'}>
           Electronics
         </NavbarItem>
-        <NavbarItem to="/" category={'Furnitures'}>
-          Furnitures
+        <NavbarItem to="/" category={'Jewelery'}>
+          Jewelery
         </NavbarItem>
-        <NavbarItem to="/" category={'Toys'}>
-          Toys
+        <NavbarItem to="/" category={`Men's Clothing`}>
+          Men's Clothing
         </NavbarItem>
-        <NavbarItem to="/" category={'Others'}>
-          Others
+        <NavbarItem to="/" category={`women's clothing`}>
+          Women's Clothing
         </NavbarItem>
       </ul>
       <ul className={`lg:flex lg:items-center lg:flex-row gap-3 `}>
