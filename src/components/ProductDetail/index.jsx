@@ -15,7 +15,7 @@ function ProductDetail() {
       // Aplicamos clases CSS condicionalmente para mostrar u ocultar el componente
       className={`${
         context.isProductDetailOpen ? 'flex' : 'hidden'
-      } flex flex-col fixed z-20 right-0 top-0 w-screen h-full overflow-y-auto md:top-[60px] md:w-[360px] bg-white dark:bg-inherit border border-inherit rounded-lg md:h-[calc(100vh-60px)]`}
+      } flex flex-col fixed z-20 right-0 top-0 w-screen h-full overflow-y-auto lg:top-[60px] lg:w-[360px] bg-white dark:bg-inherit border border-inherit rounded-lg lg:h-[calc(100vh-60px)]`}
     >
       <div className="flex justify-between items-center p-6">
         <h2 className="font-medium text-xl">Detail</h2>
@@ -29,7 +29,7 @@ function ProductDetail() {
       </div>
       <figure className="px-6 relative">
         {/* Imagen del producto */}
-        <Image width={1920} height={1080} style={{ objectFit: 'cover' }} src={image} alt={title || 'Nothing here...'} className="w-full h-full rounded-lg" />
+        <Image width={1920} height={1080} src={image} alt={title} className="w-full max-h-[75vh] sm:max-h-[60vh] rounded-lg object-contain bg-white" />
         {/* Etiqueta de categoría */}
         <span className="absolute bottom-0 left-0 bg-zinc-300 rounded-lg text-black text-xs ml-9 mb-3 px-3 py-0.5">{category}</span>
       </figure>

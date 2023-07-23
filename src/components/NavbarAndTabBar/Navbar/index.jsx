@@ -22,7 +22,7 @@ function Navbar() {
     email = JSON.parse(localStorage.getItem('user-data')).email;
   }
   return (
-    <nav className="hidden lg:flex lg:flex-row lg:justify-between lg:items-center fixed z-10 lg:w-screen py-4 px-8 text-sm font-light rounded-lg top-0 border-b-2 bg-white dark:text-white dark:bg-zinc-900">
+    <nav className="hidden lg:flex lg:flex-row lg:justify-between lg:items-center fixed z-10 lg:w-screen py-4 px-8 text-sm font-light top-0 border-b-2 bg-white dark:text-white dark:bg-zinc-900">
       {/* Este es el logo de la página (por ahora), por lo que está con unos estilos diferentes */}
       <h2 className="font-bold text-md cursor-default">Reactify</h2>
       <ul className={`lg:flex lg:items-center lg:flex-row gap-3 `}>

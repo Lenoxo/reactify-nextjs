@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import { filterBy } from '@components/utils';
-const API = 'https://api.escuelajs.co/api/v1/products';
+const API = 'https://fakestoreapi.com/products';
 
 const ShoppingCartContext = createContext();
 
