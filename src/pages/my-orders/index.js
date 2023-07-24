@@ -10,10 +10,12 @@ function MyOrders() {
     <Layout>
       My Orders
       {context.order.map((order, index) => {
+        // Aquí uso el método .toFixed para limitar a solo 2 decimales el precio total que se ve, debido a errores en la visualización en Mobile.
+        const totalPriceWithTwoDecimals = order.totalPrice.toFixed(2);
         return (
           // Por ahora, esta última parte de my-orders, con el render dinámico, no está funcionando.
           <Link key={index} href={`/my-orders/${index}`}>
-            <OrdersCard totalProducts={order.totalProducts} totalPrice={order.totalPrice} date={order.date} />
+            <OrdersCard totalProducts={order.totalProducts} totalPrice={totalPriceWithTwoDecimals} date={order.date} />
           </Link>
         );
       })}
