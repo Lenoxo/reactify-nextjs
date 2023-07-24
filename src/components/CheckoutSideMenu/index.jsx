@@ -54,7 +54,8 @@ function CheckoutSideMenu() {
       <div className="px-6 pb-6">
         <p className="flex justify-between items-center pb-2">
           <span className="font-light text-lg">Total:</span>
-          <span className="font-medium text-xl">${totalPrice(context.cartProducts)}</span>
+          {/* Aquí uso .toFixed para limitar los números decimales a 2 */}
+          <span className="font-medium text-xl">${totalPrice(context.cartProducts).toFixed(2)}</span>
         </p>
         <Link href={`/my-orders/${context.order.length}`}>
           <button className="bg-black rounded-lg text-white w-full h-9 font-bold" onClick={() => handleCheckout()}>
