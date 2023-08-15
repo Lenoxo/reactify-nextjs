@@ -9,8 +9,10 @@ Reactify is an e-commerce application developed using React.js with Next.js and 
 - **Progressive Web App (PWA):** Reactify is a Progressive Web App, allowing users to install it on their devices and use it offline.
 - **User Data Management:** The application currently manages user data for login/registration by storing it in localStorage.
 - **Preliminary Route Protection:** Implements preliminary route protection by redirecting users to the login page if they haven't created an account or haven't logged in.
+- **Fake Store API Integration:** The website utilizes the Fake Store API to fetch product data.
 
 ## Table of Contents:
+
 - [Demo](#demo)
 - [Features](#features)
 - [Installation](#installation)
@@ -32,6 +34,7 @@ Reactify is an e-commerce application developed using React.js with Next.js and 
 - **Progressive Web App (PWA):** Reactify is a Progressive Web App, enabling users to install it on their devices and use it offline.
 - **User Data Management:** The application currently manages user data for login/registration by storing it in localStorage.
 - **Preliminary Route Protection:** Implements preliminary route protection by redirecting users to the login page if they haven't created an account or haven't logged in.
+- **Fake Store API Integration:** The website utilizes the Fake Store API to fetch product data.
 
 ### Installation
 
@@ -45,6 +48,7 @@ To install and run Reactify locally, follow these steps:
 
 ### Useful Resources
 
+- **[Official Fake Store API](https://fakestoreapi.com/)**: Link to the official page.
 - **[Official React.js Documentation](https://react.dev/)**: Essential resource for learning about React.js and its ecosystem.
 - **[Official Next.js Documentation](https://nextjs.org/docs)**: Documentation for Vite.js, a fast development tool for JavaScript-based projects.
 - **[Official TailwindCSS Documentation](https://tailwindcss.com/)**: Resource for learning about TailwindCSS, a highly customizable and easy-to-use CSS framework.
