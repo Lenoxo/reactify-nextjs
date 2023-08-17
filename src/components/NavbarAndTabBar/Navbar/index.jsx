@@ -4,6 +4,7 @@ import { NavbarItem } from '../NavbarItem';
 import { ToggleDarkModeButton } from '../ToggleDarkModeButton';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { BiLogoReact } from 'react-icons/bi';
 
 function Navbar() {
   const router = useRouter();
@@ -17,14 +18,21 @@ function Navbar() {
     router.push('/login');
   };
 
+  const handleTitleClick = () => {
+    context.setProductCategoryValue(null);
+  };
+
   if (context.logged) {
     // Si el usuario ha iniciado sesión, toma del localStorage su dirección de correo electrónico.
     email = JSON.parse(localStorage.getItem('user-data')).email;
   }
   return (
     <nav className="hidden lg:flex lg:flex-row lg:justify-between lg:items-center fixed z-10 lg:w-screen py-4 px-8 text-sm font-light top-0 border-b-2 bg-white dark:text-white dark:bg-zinc-900">
-      {/* Este es el logo de la página (por ahora), por lo que está con unos estilos diferentes */}
-      <h2 className="font-bold text-md cursor-default">Reactify</h2>
+      {/* Aquí uso handleTitleClick para poder restablecer el valor de la categoria a ninguno (null) */}
+      <Link href="/" className="flex items-center" onClick={handleTitleClick}>
+        <BiLogoReact className="w-6 h-auto sm:mr-2" />
+        <h1 className="font-semibold">Reactify</h1>
+      </Link>
       <ul className={`lg:flex lg:items-center lg:flex-row gap-3 `}>
         {/* En el resto de items, mando por props to y activeStyle */}
         <NavbarItem to="/" category={null}>
