@@ -41,8 +41,8 @@ export default function Home() {
   return (
     <Layout>
       <div className="flex flex-col items-center sm:flex-row sm:justify-center">
-        <BiLogoReact className="w-10 h-auto sm:mr-2 lg:hidden react-icons-spin" />
-        <h1 className="font-semibold text-xl mb-4 sm:mr-4 lg:hidden">Reactify</h1>
+        <BiLogoReact className="w-10 h-auto sm:mr-2 lg:hidden" />
+        <h1 className="font-semibold text-xl mb-4 sm:mb-0 sm:mr-4 lg:hidden">Reactify</h1>
         <h2 className="font-extralight text-xl">Time to get you something great!</h2>
       </div>
       <input
