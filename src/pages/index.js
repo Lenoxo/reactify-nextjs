@@ -1,17 +1,18 @@
-import { useContext, useEffect } from 'react';
-import { ShoppingCartContext } from 'Context';
-import { Layout } from '@components/Layout';
-import { LoadingCard } from '@components/LoadingCard';
-import { Card } from '@components/Card';
-import { ProductDetail } from '@components/ProductDetail';
-import { useRouter } from 'next/router';
+import { useContext, useEffect } from "react";
+import { ShoppingCartContext } from "Context";
+import { Layout } from "@components/Layout";
+import { LoadingCard } from "@components/LoadingCard";
+import { Card } from "@components/Card";
+import { ProductDetail } from "@components/ProductDetail";
+import { useRouter } from "next/router";
+import { BiLogoReact } from "react-icons/bi";
 
 export default function Home() {
   const context = useContext(ShoppingCartContext);
   const router = useRouter();
   useEffect(() => {
     if (!context.logged) {
-      router.push('/login');
+      router.push("/login");
     }
   }, [context.logged, router]);
   function renderCards() {
@@ -39,7 +40,11 @@ export default function Home() {
   }
   return (
     <Layout>
-      <h1 className="font-extralight text-xl">Time to get you something great!</h1>
+      <div className="flex flex-col items-center sm:flex-row sm:justify-center">
+        <BiLogoReact className="w-10 h-auto sm:mr-2 lg:hidden" />
+        <h1 className="font-semibold text-xl mb-4 sm:mb-0 sm:mr-4 lg:hidden">Reactify</h1>
+        <h2 className="font-extralight text-xl">Time to get you something great!</h2>
+      </div>
       <input
         id="search-bar"
         type="text"
