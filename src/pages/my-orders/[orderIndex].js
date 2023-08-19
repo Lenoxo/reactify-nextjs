@@ -1,9 +1,9 @@
-import { useContext, useEffect } from 'react';
-import { ShoppingCartContext } from '../../Context';
-import { Layout } from '@components/Layout';
-import { OrderCard } from '@components/OrderCard';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
+import { useContext, useEffect } from "react";
+import { ShoppingCartContext } from "../../Context";
+import { Layout } from "@components/Layout";
+import { OrderCard } from "@components/OrderCard";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 function MyOrder() {
   const context = useContext(ShoppingCartContext);
@@ -19,7 +19,14 @@ function MyOrder() {
         {/* Link de volver a My Orders */}
         <Link href="/my-orders" className="absolute left-0">
           {/* Icono de volver */}
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
           </svg>
         </Link>

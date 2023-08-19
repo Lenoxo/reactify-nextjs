@@ -34,7 +34,17 @@ export default function Home() {
     } else {
       return context.filteredProducts?.map((product) => {
         // Envio por props los datos necesarios para renderizar las Cards.
-        return <Card key={product.id} id={product.id} category={product.category} image={product.image} title={product.title} price={product.price} description={product.description} />;
+        return (
+          <Card
+            key={product.id}
+            id={product.id}
+            category={product.category}
+            image={product.image}
+            title={product.title}
+            price={product.price}
+            description={product.description}
+          />
+        );
       });
     }
   }
@@ -53,7 +63,9 @@ export default function Home() {
         onChange={(event) => context.setProductSearchValue(event.target.value)}
       />
       {/* Esta es la sección de los productos*/}
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full max-w-screen-lg place-items-center h-full">{renderCards()}</section>
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full max-w-screen-lg place-items-center h-full">
+        {renderCards()}
+      </section>
       <ProductDetail />
     </Layout>
   );

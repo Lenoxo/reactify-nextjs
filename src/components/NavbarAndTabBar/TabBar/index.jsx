@@ -1,9 +1,9 @@
-import { useContext, useState } from 'react';
-import { NavbarItem } from '../NavbarItem';
-import { ShoppingCartContext } from 'Context';
-import { ToggleDarkModeButton } from '../ToggleDarkModeButton';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useContext, useState } from "react";
+import { NavbarItem } from "../NavbarItem";
+import { ShoppingCartContext } from "Context";
+import { ToggleDarkModeButton } from "../ToggleDarkModeButton";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 function TabBar() {
   const router = useRouter();
@@ -13,33 +13,63 @@ function TabBar() {
   const handleLogout = () => {
     // Maneja el cierre de sesión
     context.setLogged(false);
-    localStorage.setItem('logged', 'false');
-    router.push('/login');
+    localStorage.setItem("logged", "false");
+    router.push("/login");
   };
   return (
     <ul className="flex flex-row w-full h-[68px] fixed justify-around items-center bottom-0 left-0 bg-white dark:text-white dark:bg-zinc-900 z-10 lg:hidden border-t-2">
       {/* Icono de Search */}
       <Link href="#search-bar">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-auto">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="currentColor"
+          className="w-6 h-auto"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+          />
         </svg>
       </Link>
       {/* Icono de Categorias */}
-      <button onClick={() => setHideList(!hideList)} onKeyDown={() => setHideList(!hideList)} className="active:bg-zinc-300 px-2 rounded-lg">
+      <button
+        onClick={() => setHideList(!hideList)}
+        onKeyDown={() => setHideList(!hideList)}
+        className="active:bg-zinc-300 px-2 rounded-lg"
+      >
         {/* svg del icono de Categorías */}
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-auto">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="currentColor"
+          className="w-6 h-auto"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z"
+          />
         </svg>
         {/* Lista de categorías */}
-        <ul className={`${hideList && 'hidden'} flex items-center flex-col gap-3 absolute bottom-[68px] left-1/9 bg-white dark:text-white dark:bg-zinc-900 rounded-t-lg p-2 border`}>
+        <ul
+          className={`${
+            hideList && "hidden"
+          } flex items-center flex-col gap-3 absolute bottom-[68px] left-1/9 bg-white dark:text-white dark:bg-zinc-900 rounded-t-lg p-2 border`}
+        >
           {/* En electronics resto de items, mando por props to y activeStyle */}
           <NavbarItem to="/" category={null}>
             All
           </NavbarItem>
-          <NavbarItem to="/" category={'Electronics'}>
+          <NavbarItem to="/" category={"Electronics"}>
             Electronics
           </NavbarItem>
-          <NavbarItem to="/" category={'Jewelery'}>
+          <NavbarItem to="/" category={"Jewelery"}>
             Jewelery
           </NavbarItem>
           <NavbarItem to="/" category={"Men's clothing"}>
@@ -54,7 +84,14 @@ function TabBar() {
         <>
           {/* icono del perfil */}
           <NavbarItem to="/my-account">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-auto">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="w-6 h-auto"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -64,7 +101,14 @@ function TabBar() {
           </NavbarItem>
           {/* Icono de My Orders */}
           <NavbarItem to="/my-orders">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-auto">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="w-6 h-auto"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -74,7 +118,14 @@ function TabBar() {
           </NavbarItem>
           {/* Icono de sign-out */}
           <NavbarItem to="/login" handleLogout={handleLogout}>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-auto">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="w-6 h-auto"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -86,7 +137,14 @@ function TabBar() {
           <li className="flex items-center">
             <button onClick={() => context.openCheckoutSideMenu()}>
               {/* Este es el icono del carrito de compras (ShoppingCart) */}
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -104,7 +162,14 @@ function TabBar() {
           {/* Enlace para iniciar sesión */}
           <Link href="/login">
             {/* Icono para iniciar sesión */}
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"

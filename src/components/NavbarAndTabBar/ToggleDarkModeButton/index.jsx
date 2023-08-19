@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 function ToggleDarkModeButton() {
   const [darkMode, setDarkMode] = useState(false);
@@ -6,12 +6,19 @@ function ToggleDarkModeButton() {
   // Este es un efecto para activar/desactivar el darkmode solo cuando el estado cambia.
   useEffect(() => {
     const body = document.body;
-    darkMode ? body.classList.add('dark') : body.classList.remove('dark');
+    darkMode ? body.classList.add("dark") : body.classList.remove("dark");
   }, [darkMode]);
 
   return (
     <button className="first:mt-3 lg:first:mt-0" onClick={() => setDarkMode(!darkMode)}>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-6 h-6"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
