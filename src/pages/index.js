@@ -50,13 +50,12 @@ export default function Home() {
   }
   return (
     <Layout>
-      <div className="flex flex-col items-center sm:flex-row sm:justify-center">
+      <div className="flex flex-col items-center sm:flex-row sm:justify-center" id="title-container">
         <BiLogoReact className="w-10 h-auto sm:mr-2 lg:hidden" />
         <h1 className="font-semibold text-xl mb-4 sm:mb-0 sm:mr-4 lg:hidden">Reactify</h1>
         <h2 className="font-extralight text-xl">Time to get you something great!</h2>
       </div>
       <input
-        id="search-bar"
         type="text"
         className="p-3 my-6 border border-slate-950 dark:bg-zinc-800 dark:border-white rounded-lg focus:outline-none"
         placeholder="Search a product"
