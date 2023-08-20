@@ -1,14 +1,28 @@
-import { useContext, useState } from "react";
-import { NavbarItem } from "../NavbarItem";
 import { ShoppingCartContext } from "Context";
-import { ToggleDarkModeButton } from "../ToggleDarkModeButton";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useContext, useEffect, useRef, useState } from "react";
+import { NavbarItem } from "../NavbarItem";
+import { ToggleDarkModeButton } from "../ToggleDarkModeButton";
 
 function TabBar() {
   const router = useRouter();
   const context = useContext(ShoppingCartContext);
   const [hideList, setHideList] = useState(true);
+  const listRef = useRef(null);
+  // Este efecto detecta clicks por fuera del ul con la ref=listRef
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (listRef.current && !listRef.current.contains(event.target)) {
+        // console.log("Clic fuera del menú desplegable");
+        setHideList(true);
+        return () => {
+          document.removeEventListener("mousedown", handleClickOutside);
+        };
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+  }, [listRef]);
 
   const handleLogout = () => {
     // Maneja el cierre de sesión
@@ -19,7 +33,7 @@ function TabBar() {
   return (
     <ul className="flex flex-row w-full h-[68px] fixed justify-around items-center bottom-0 left-0 bg-white dark:text-white dark:bg-zinc-900 z-10 lg:hidden border-t-2">
       {/* Icono de Search */}
-      <Link href="#search-bar">
+      <Link href="/#search-bar">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -58,6 +72,7 @@ function TabBar() {
         </svg>
         {/* Lista de categorías */}
         <ul
+          ref={listRef}
           className={`${
             hideList && "hidden"
           } flex items-center flex-col gap-3 absolute bottom-[68px] left-1/9 bg-white dark:text-white dark:bg-zinc-900 rounded-t-lg p-2 border`}
