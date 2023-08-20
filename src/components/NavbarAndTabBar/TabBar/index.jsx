@@ -17,11 +17,16 @@ function TabBar() {
   const context = useContext(ShoppingCartContext);
   const [hideList, setHideList] = useState(true);
   const listRef = useRef(null);
+  const toggleListButtonRef = useRef(null);
   // Este efecto detecta clicks por fuera del ul con la ref=listRef
   useEffect(() => {
     function handleClickOutside(event) {
-      isListToggleButton = document.getElementById();
-      if (listRef.current && !listRef.current.contains(event.target)) {
+      // Aqui también uso toggleListButtonRef para evitar un conflicto al hacer click en el y que no funcione su respectivo onCLick.
+      if (
+        listRef.current &&
+        !listRef.current.contains(event.target) &&
+        !toggleListButtonRef.current.contains(event.target)
+      ) {
         // console.log("Clic fuera del menú desplegable");
         setHideList(true);
         return () => {
@@ -48,6 +53,7 @@ function TabBar() {
       <button
         onClick={() => setHideList(!hideList)}
         onKeyDown={() => setHideList(!hideList)}
+        ref={toggleListButtonRef}
         className="active:bg-zinc-300 px-2 rounded-lg"
       >
         <CategoryIcon />
