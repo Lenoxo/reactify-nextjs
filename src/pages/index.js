@@ -50,9 +50,9 @@ export default function Home() {
   }
   return (
     <Layout>
-      <div className="flex flex-col items-center sm:flex-row sm:justify-center" id="title-container">
-        <BiLogoReact className="w-10 h-auto sm:mr-2 lg:hidden" />
-        <h1 className="font-semibold text-xl mb-4 sm:mb-0 sm:mr-4 lg:hidden">Reactify</h1>
+      <div className="flex flex-col items-center sm:justify-center" id="title-container">
+        <BiLogoReact className="w-10 h-auto lg:hidden" />
+        <h1 className="font-semibold text-xl mb-4 lg:hidden">Reactify</h1>
         <h2 className="font-extralight text-xl">Time to get you something great!</h2>
       </div>
       <input
@@ -62,7 +62,7 @@ export default function Home() {
         onChange={(event) => context.setProductSearchValue(event.target.value)}
       />
       {/* Esta es la sección de los productos*/}
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full max-w-screen-lg place-items-center h-full">
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full max-w-screen-lg place-items-center h-full pb-[68px]">
         {renderCards()}
       </section>
       <ProductDetail />

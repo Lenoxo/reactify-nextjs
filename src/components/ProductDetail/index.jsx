@@ -44,7 +44,7 @@ function ProductDetail() {
           className="w-full max-h-[75vh] sm:max-h-[60vh] rounded-lg object-contain bg-white"
         />
         {/* Etiqueta de categoría */}
-        <span className="absolute bottom-0 left-0 bg-zinc-300 rounded-lg text-black text-xs ml-9 mb-3 px-3 py-0.5">
+        <span className="absolute bottom-0 left-0 bg-zinc-200 rounded-lg text-zinc-800 font-semibold text-xs ml-9 mb-3 px-3 py-0.5">
           {category}
         </span>
       </figure>

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useRef, useEffect } from "react";
 import { ShoppingCartContext } from "../../Context";
 import Image from "next/image";
 
@@ -12,6 +12,38 @@ function Card({ category, title, image, price, description, id }) {
     id,
   };
   const context = useContext(ShoppingCartContext);
+
+  const cardRef = useRef(null);
+
+  // This useEffect observes when a Card is within the viewport, and if it is, modifies tailwind classes to show it.
+  useEffect(() => {
+    const currentCard = cardRef.current;
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Here add / remove tailwind classes to currentCard, doing the entry animation.
+          currentCard.classList.add("opacity-100");
+          currentCard.classList.remove("translate-y-3");
+        }
+      });
+    }, observerOptions);
+
+    if (currentCard) {
+      observer.observe(currentCard);
+    }
+
+    return () => {
+      if (currentCard) {
+        observer.unobserve(currentCard);
+      }
+    };
+  }, []);
 
   // Abre el detalle del producto
   function showProduct(productDetailData) {
@@ -68,9 +100,10 @@ function Card({ category, title, image, price, description, id }) {
   }
   return (
     <div
+      ref={cardRef}
       role="button"
       tabIndex={0}
-      className="bg-inherit cursor-pointer w-56 h-64 rounded-lg mb-6"
+      className="bg-inherit cursor-pointer w-56 h-64 rounded-lg mb-6 translate-y-3 opacity-0 transition-all duration-300"
       onClick={() => showProduct(productData)}
       onKeyDown={() => showProduct(productData)}
     >
@@ -78,7 +111,7 @@ function Card({ category, title, image, price, description, id }) {
         {/* Imagen del producto */}
         <Image className="object-contain rounded-lg bg-white" src={image} alt={title} fill={true} />
         {/* Etiqueta que muestra la categoría del producto */}
-        <span className="absolute bottom-0 left-0 bg-zinc-300 rounded-lg text-black text-xs m-2 px-3 py-0.5">
+        <span className="absolute bottom-0 left-0 bg-zinc-200 rounded-lg text-zinc-900 font-semibold text-xs m-2 px-3 py-0.5">
           {category}
         </span>
         {/* Renderiza el ícono de carrito o la marca de verificación */}
