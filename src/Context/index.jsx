@@ -1,6 +1,6 @@
-import { createContext, useState, useEffect } from 'react';
-import { filterBy } from '@components/utils';
-const API = 'https://fakestoreapi.com/products';
+import { createContext, useState, useEffect } from "react";
+import { filterBy } from "@components/utils";
+const API = "https://fakestoreapi.com/products";
 
 const ShoppingCartContext = createContext();
 
@@ -41,7 +41,7 @@ function ShoppingCartProvider({ children }) {
   const [products, setProducts] = useState(null);
   // Aquí uso useEffect porque estoy consumiendo la API de Platzi Fake Store
   useEffect(() => {
-    setLogged(Boolean(JSON.parse(localStorage.getItem('logged')))); // Se actualiza el estado logged con el guardado en localStorage.
+    setLogged(Boolean(JSON.parse(localStorage.getItem("logged")))); // Se actualiza el estado logged con el guardado en localStorage.
     fetch(API)
       .then((response) => response.json())
       .then((data) => {
@@ -60,10 +60,14 @@ function ShoppingCartProvider({ children }) {
 
   // Este efecto modifica el estado de filteredProducts cuando cambia el valor de productSearchValue
   useEffect(() => {
-    if (productSearchValue && productCategoryValue) setFilteredProducts(filterBy('title_and_category', products, productSearchValue, productCategoryValue));
-    if (productSearchValue && !productCategoryValue) setFilteredProducts(filterBy('by_title', products, productSearchValue, productCategoryValue));
-    if (!productSearchValue && productCategoryValue) setFilteredProducts(filterBy('by_category', products, productSearchValue, productCategoryValue));
-    if (!productSearchValue && !productCategoryValue) setFilteredProducts(filterBy(null, products, productSearchValue, productCategoryValue));
+    if (productSearchValue && productCategoryValue)
+      setFilteredProducts(filterBy("title_and_category", products, productSearchValue, productCategoryValue));
+    if (productSearchValue && !productCategoryValue)
+      setFilteredProducts(filterBy("by_title", products, productSearchValue, productCategoryValue));
+    if (!productSearchValue && productCategoryValue)
+      setFilteredProducts(filterBy("by_category", products, productSearchValue, productCategoryValue));
+    if (!productSearchValue && !productCategoryValue)
+      setFilteredProducts(filterBy(null, products, productSearchValue, productCategoryValue));
   }, [products, productSearchValue, productCategoryValue]);
 
   return (

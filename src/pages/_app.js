@@ -1,17 +1,17 @@
-import Head from 'next/head';
-import Script from 'next/script';
-import { Navbar } from '@components/NavbarAndTabBar/Navbar';
-import { TabBar } from '@components/NavbarAndTabBar/TabBar';
-import { ShoppingCartProvider } from 'Context';
-import { CheckoutSideMenu } from '@components/CheckoutSideMenu';
-import '../styles/globals.css';
+import Head from "next/head";
+import Script from "next/script";
+import { Navbar } from "@components/NavbarAndTabBar/Navbar";
+import { TabBar } from "@components/NavbarAndTabBar/TabBar";
+import { ShoppingCartProvider } from "Context";
+import { CheckoutSideMenu } from "@components/CheckoutSideMenu";
+import "../styles/globals.css";
 
 export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
         <title>Reactify</title>
-        <link rel='manifest' href='/manifest.json' />
+        <link rel="manifest" href="/manifest.json" />
       </Head>
       {/* Global site tag (gtag.js) - Google Analytics */}
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-Q209P0ECCH" strategy="afterInteractive" />

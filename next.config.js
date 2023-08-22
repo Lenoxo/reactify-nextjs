@@ -1,9 +1,11 @@
+const prod = process.env.NODE_ENV === 'production'
+
 /** @type {import('next').NextConfig} */
 const withPWA = require('next-pwa')({
   dest: 'public',
   register: true,
   mode: 'production',
-  disable: false,
+  disable: prod ? false : true,
 });
 
 const nextConfig = withPWA({

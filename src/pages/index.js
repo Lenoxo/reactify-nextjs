@@ -34,26 +34,37 @@ export default function Home() {
     } else {
       return context.filteredProducts?.map((product) => {
         // Envio por props los datos necesarios para renderizar las Cards.
-        return <Card key={product.id} id={product.id} category={product.category} image={product.image} title={product.title} price={product.price} description={product.description} />;
+        return (
+          <Card
+            key={product.id}
+            id={product.id}
+            category={product.category}
+            image={product.image}
+            title={product.title}
+            price={product.price}
+            description={product.description}
+          />
+        );
       });
     }
   }
   return (
     <Layout>
-      <div className="flex flex-col items-center sm:flex-row sm:justify-center">
-        <BiLogoReact className="w-10 h-auto sm:mr-2 lg:hidden" />
-        <h1 className="font-semibold text-xl mb-4 sm:mb-0 sm:mr-4 lg:hidden">Reactify</h1>
+      <div className="flex flex-col items-center sm:justify-center" id="title-container">
+        <BiLogoReact className="w-10 h-auto lg:hidden" />
+        <h1 className="font-semibold text-xl mb-4 lg:hidden">Reactify</h1>
         <h2 className="font-extralight text-xl">Time to get you something great!</h2>
       </div>
       <input
-        id="search-bar"
         type="text"
         className="p-3 my-6 border border-slate-950 dark:bg-zinc-800 dark:border-white rounded-lg focus:outline-none"
         placeholder="Search a product"
         onChange={(event) => context.setProductSearchValue(event.target.value)}
       />
       {/* Esta es la sección de los productos*/}
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full max-w-screen-lg place-items-center h-full">{renderCards()}</section>
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full max-w-screen-lg place-items-center h-full pb-[68px]">
+        {renderCards()}
+      </section>
       <ProductDetail />
     </Layout>
   );

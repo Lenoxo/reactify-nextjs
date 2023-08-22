@@ -1,21 +1,21 @@
-import { useContext } from 'react';
-import { ShoppingCartContext } from '../../../Context';
-import { NavbarItem } from '../NavbarItem';
-import { ToggleDarkModeButton } from '../ToggleDarkModeButton';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { BiLogoReact } from 'react-icons/bi';
+import { useContext } from "react";
+import { ShoppingCartContext } from "../../../Context";
+import { NavbarItem } from "../NavbarItem";
+import { ToggleDarkModeButton } from "../ToggleDarkModeButton";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { BiLogoReact } from "react-icons/bi";
 
 function Navbar() {
   const router = useRouter();
   const context = useContext(ShoppingCartContext);
-  let email = '';
+  let email = "";
 
   const handleLogout = () => {
     // Maneja el cierre de sesión
     context.setLogged(false);
-    localStorage.setItem('logged', 'false');
-    router.push('/login');
+    localStorage.setItem("logged", "false");
+    router.push("/login");
   };
 
   const handleTitleClick = () => {
@@ -24,7 +24,7 @@ function Navbar() {
 
   if (context.logged) {
     // Si el usuario ha iniciado sesión, toma del localStorage su dirección de correo electrónico.
-    email = JSON.parse(localStorage.getItem('user-data')).email;
+    email = JSON.parse(localStorage.getItem("user-data")).email;
   }
   return (
     <nav className="hidden lg:flex lg:flex-row lg:justify-between lg:items-center fixed z-10 lg:w-screen py-4 px-8 text-sm font-light top-0 border-b-2 bg-white dark:text-white dark:bg-zinc-900">
@@ -38,10 +38,10 @@ function Navbar() {
         <NavbarItem to="/" category={null}>
           All
         </NavbarItem>
-        <NavbarItem to="/" category={'Electronics'}>
+        <NavbarItem to="/" category={"Electronics"}>
           Electronics
         </NavbarItem>
-        <NavbarItem to="/" category={'Jewelery'}>
+        <NavbarItem to="/" category={"Jewelery"}>
           Jewelery
         </NavbarItem>
         <NavbarItem to="/" category={"Men's clothing"}>
@@ -68,7 +68,14 @@ function Navbar() {
             <li className="flex items-center">
               <button onClick={() => context.openCheckoutSideMenu()}>
                 {/* Este es el icono del carrito de compras (ShoppingCart) */}
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"

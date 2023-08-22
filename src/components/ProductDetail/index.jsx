@@ -1,6 +1,6 @@
-import { useContext } from 'react';
-import { ShoppingCartContext } from '../../Context';
-import Image from 'next/image';
+import { useContext } from "react";
+import { ShoppingCartContext } from "../../Context";
+import Image from "next/image";
 
 function ProductDetail() {
   // Obtenemos el contexto del carrito de compras
@@ -14,7 +14,7 @@ function ProductDetail() {
     <aside
       // Aplicamos clases CSS condicionalmente para mostrar u ocultar el componente
       className={`${
-        context.isProductDetailOpen ? 'flex' : 'hidden'
+        context.isProductDetailOpen ? "flex" : "hidden"
       } flex flex-col fixed z-20 right-0 top-0 w-screen h-full overflow-y-auto lg:top-[60px] lg:w-[360px] bg-white dark:bg-inherit border border-inherit rounded-lg lg:h-[calc(100vh-60px)]`}
     >
       <div className="flex justify-between items-center p-6">
@@ -22,16 +22,31 @@ function ProductDetail() {
         {/* Botón de cierre del detalle del producto */}
         <button onClick={() => context.closeProductDetail()} className="cursor-pointer">
           {/* Icono de cerrar la ventana */}
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
       <figure className="px-6 relative">
         {/* Imagen del producto */}
-        <Image width={1920} height={1080} src={image} alt={title} className="w-full max-h-[75vh] sm:max-h-[60vh] rounded-lg object-contain bg-white" />
+        <Image
+          width={1920}
+          height={1080}
+          src={image}
+          alt={title}
+          className="w-full max-h-[75vh] sm:max-h-[60vh] rounded-lg object-contain bg-white"
+        />
         {/* Etiqueta de categoría */}
-        <span className="absolute bottom-0 left-0 bg-zinc-300 rounded-lg text-black text-xs ml-9 mb-3 px-3 py-0.5">{category}</span>
+        <span className="absolute bottom-0 left-0 bg-zinc-200 rounded-lg text-zinc-800 font-semibold text-xs ml-9 mb-3 px-3 py-0.5">
+          {category}
+        </span>
       </figure>
       <p className="flex flex-col p-6">
         {/* Precio del producto */}
