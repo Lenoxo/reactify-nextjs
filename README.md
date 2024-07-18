@@ -22,7 +22,15 @@ Reactify is an e-commerce application developed using React.js with Next.js and 
 
 ### Demo
 
-![Reactify Desktop](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzU3ZGMzMjE3NmY5MGUzMTA1Nzk4OWY1ODM3N2ZjYTAzMzJiMDg0OCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/UnyEus52Feckdb6NSH/giphy.gif)
+
+
+
+#### Reactify Desktop
+
+https://github.com/user-attachments/assets/0da4585f-2f44-49d2-be76-852833007de3
+
+#### Reactify Mobile
+
 ![Reactify Mobile](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTkzMTM0ZDhmMWM5MjJkM2JiNjY0NTM4YTU1M2YzZmUwOGJjZWM4YyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/WiiPIpay0CbI6ZiNdS/giphy.gif)
 
 ### Features
